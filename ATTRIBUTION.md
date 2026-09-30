@@ -1,6 +1,6 @@
 # Attribution and project history
 
-This portfolio is derived from Queen's University Belfast's CSC3065 Cloud Computing Assessment 2 (2024–2025), titled Text Editor. The original application is known as QUBeditotron3000.
+Built from cloud computing coursework and maintained as a text-processing and monitoring portfolio.
 
 ## Course starter components
 

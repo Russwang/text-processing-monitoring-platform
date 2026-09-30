@@ -2,7 +2,7 @@
   "name": "editor_charcount",
   "version": "1.0.0",
   "description": "Character Counting Web Service",
-  "author": "David Cutting <d.cutting@qub.ac.uk>",
+  "author": "David Cutting",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",

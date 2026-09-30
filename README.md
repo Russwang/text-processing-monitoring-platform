@@ -1,6 +1,6 @@
 # Containerised Text Processing and Monitoring Platform
 
-A polyglot microservice application that analyses text, saves documents by ID, and monitors service correctness and response time. Built from the **CSC3065 Cloud Computing** coursework at Queen's University Belfast and subsequently repaired and packaged for this portfolio.
+A polyglot microservice application that analyses text, saves documents by ID, and monitors service correctness and response time. Built from cloud computing coursework and subsequently repaired and packaged for this portfolio.
 
 **Python · Go · Ruby · Java · Node.js · PHP · Docker · SQLite · GitHub Actions**
 
