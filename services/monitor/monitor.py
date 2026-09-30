@@ -1,4 +1,5 @@
 """Periodic semantic checks and latency measurement with SQLite history."""
+from contextlib import closing
 import json
 import os
 from pathlib import Path
@@ -22,7 +23,7 @@ threshold = config['performance_threshold']
 webhook_url = os.environ.get('DISCORD_WEBHOOK_URL', '')
 
 def read_logs(query):
-    with sqlite3.connect(DB_PATH) as conn:
+    with closing(sqlite3.connect(DB_PATH)) as conn, conn:
         conn.row_factory = sqlite3.Row
         return [dict(row) for row in conn.execute(query)]
 

@@ -1,3 +1,4 @@
+from contextlib import closing
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import sqlite3
@@ -18,7 +19,7 @@ def save_text():
     if not isinstance(custom_id, str) or not custom_id.strip():
         return jsonify(error='Nonempty string ID is required'), 400
     try:
-        with sqlite3.connect(DB_PATH) as conn:
+        with closing(sqlite3.connect(DB_PATH)) as conn, conn:
             conn.execute('INSERT INTO text_store (id, text) VALUES (?, ?)', (custom_id, text))
     except sqlite3.IntegrityError:
         return jsonify(error='ID already exists'), 409
