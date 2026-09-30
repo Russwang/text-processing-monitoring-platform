@@ -25,18 +25,20 @@ Maintenance date: 2026-09-30. Original coursework directories and Word documents
 | Deployment | Manual commands and host.docker.internal URLs | Ten-service Compose application, container DNS, Nginx same-origin routes, two data volumes |
 | Packaging | Old runtime images, no unified GitHub CI, local artifacts mixed with source | Updated images, Node lockfile, pinned Python direct dependencies, language and container tests, ignores and attribution |
 
+The first remote container smoke test also exposed an early Nginx connection reset before it was ready. The readiness check now retries transport errors, with a regression test. The monitor's vowel sample expectation was corrected to five vowels in `A quick brown fox`.
+
 ## Local verification
 
 | Suite | Passed cases |
 |---|---:|
-| Python backend regressions | 15 |
+| Python backend and startup regressions | 16 |
 | Original Python vowel-count suite (five input assertions) | 1 |
 | Frontend asynchronous/status/storage regressions | 3 |
 | Node character counter | 1 |
 | Go counting and HTTP handler | 2 |
 | Ruby Rack/Sinatra | 4 |
 | Java JUnit, including loopback HTTP | 3 |
-| **Total** | **29** |
+| **Total** | **30** |
 
 Java tests were compiled with javac 17 and executed with JUnit Platform Console 1.10.0; Maven execution is verified separately in CI. Python compilation, JavaScript syntax and Compose configuration validation passed.
 

@@ -18,7 +18,7 @@
     },
     "vowelcount": {
       "text": "A quick brown fox",
-      "expected_answer": 4
+      "expected_answer": 5
     },
     "commacount": {
       "text": "Hello, world!",

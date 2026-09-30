@@ -156,5 +156,19 @@ class MonitoringTests(unittest.TestCase):
         history = monitor.app.test_client().get('/recent-performance').json
         self.assertNotIn('SECRET', json.dumps(history))
 
+class StartupTests(unittest.TestCase):
+    def test_connection_reset_during_startup_is_retried(self):
+        sys.path.insert(0, str(ROOT / 'scripts'))
+        try:
+            import smoke_test
+        finally:
+            sys.path.pop(0)
+        healthy = {str(n): {'status':'Online'} for n in range(6)}
+        with patch.object(smoke_test, 'call', side_effect=[ConnectionResetError(), healthy]) as call, \
+             patch.object(smoke_test.time, 'sleep') as sleep:
+            smoke_test.wait_for_services(attempts=2, interval=2)
+            self.assertEqual(call.call_count, 2)
+            sleep.assert_called_once_with(2)
+
 if __name__ == '__main__':
     unittest.main()
