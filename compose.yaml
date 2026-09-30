@@ -1,0 +1,50 @@
+services:
+  frontend:
+    build: ./services/frontend
+    ports:
+      - "127.0.0.1:${FRONTEND_PORT:-8080}:80"
+    depends_on:
+      - proxy
+      - text-store
+      - monitor
+  proxy:
+    build: ./services/proxy
+    depends_on:
+      - wordcount
+      - charcount
+      - vowelcount
+      - commacount
+      - andcount
+      - palindromecount
+  wordcount:
+    build: ./services/wordcount
+  charcount:
+    build: ./services/charcount
+  vowelcount:
+    build: ./services/vowelcount
+  commacount:
+    build: ./services/commacount
+  andcount:
+    build: ./services/andcount
+  palindromecount:
+    build: ./services/palindromecount
+  text-store:
+    build: ./services/text-store
+    volumes:
+      - text-data:/app/database
+  monitor:
+    build: ./services/monitor
+    environment:
+      DISCORD_WEBHOOK_URL: ${DISCORD_WEBHOOK_URL:-}
+    volumes:
+      - monitor-data:/app/database
+    depends_on:
+      - wordcount
+      - charcount
+      - vowelcount
+      - commacount
+      - andcount
+      - palindromecount
+volumes:
+  text-data:
+  monitor-data:

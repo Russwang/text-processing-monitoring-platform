@@ -1,0 +1,9 @@
+source 'https://rubygems.org'
+
+gem 'sinatra', '3.2.0'
+gem 'sinatra-cross_origin'
+gem 'rspec'
+gem 'rack-test'
+gem 'rackup' # 启动服务器所需
+gem 'puma'   # 推荐的 Sinatra 服务器
+gem 'rake'   # RSpec 测试需要

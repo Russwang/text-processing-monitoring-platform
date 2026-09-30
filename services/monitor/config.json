@@ -1,0 +1,37 @@
+{
+  "services": {
+    "wordcount": "http://wordcount:100",
+    "charcount": "http://charcount:90",
+    "vowelcount": "http://vowelcount:5000",
+    "commacount": "http://commacount:8080",
+    "andcount": "http://andcount:4567",
+    "palindromecount": "http://palindromecount:9000/palindromecount"
+  },
+  "test_cases": {
+    "wordcount": {
+      "text": "Hello world!",
+      "expected_answer": 2
+    },
+    "charcount": {
+      "text": "Python 3.9",
+      "expected_answer": 10
+    },
+    "vowelcount": {
+      "text": "A quick brown fox",
+      "expected_answer": 4
+    },
+    "commacount": {
+      "text": "Hello, world!",
+      "expected_answer": 1
+    },
+    "andcount": {
+      "text": "Bye, world and cloud!",
+      "expected_answer": 1
+    },
+    "palindromecount": {
+      "text": "Bye, cloud tut!",
+      "expected_answer": 1
+    }
+  },
+  "performance_threshold": 1.0
+}

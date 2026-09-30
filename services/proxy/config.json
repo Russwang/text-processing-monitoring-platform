@@ -1,0 +1,10 @@
+{
+  "services": {
+    "wordcount": "http://wordcount:100",
+    "charcount": "http://charcount:90",
+    "vowelcount": "http://vowelcount:5000",
+    "commacount": "http://commacount:8080",
+    "andcount": "http://andcount:4567",
+    "palindromecount": "http://palindromecount:9000/palindromecount"
+  }
+}

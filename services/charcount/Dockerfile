@@ -1,0 +1,11 @@
+FROM node:22-alpine
+WORKDIR /usr/src/app
+
+COPY package*.json ./
+RUN npm ci --omit=dev
+
+COPY . .
+
+EXPOSE 90
+
+CMD [ "node", "server.js" ]

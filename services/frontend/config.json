@@ -1,0 +1,5 @@
+{
+  "proxy_url": "/api/count",
+  "savepost_url": "/api/text",
+  "monitor_url": "/api/monitor"
+}
